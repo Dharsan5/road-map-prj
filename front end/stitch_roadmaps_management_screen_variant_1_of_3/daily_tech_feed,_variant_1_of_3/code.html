@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daily Tech Feed - Learning OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#4F46E5", // Indigo-600
+                        "background-light": "#F8FAFC", // Slate-50
+                        "background-dark": "#0F172A", // Slate-900
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1E293B", // Slate-800
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                    },
+                },
+            },
+        };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #475569;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 transition-colors duration-200 min-h-screen flex flex-col">
+<nav class="sticky top-0 z-50 bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 bg-indigo-50 dark:bg-indigo-900/30 rounded-full flex items-center justify-center text-primary">
+<span class="material-icons-round text-2xl">school</span>
+</div>
+<div>
+<h1 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">Learning OS</h1>
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">v3.0.1 • Pro</span>
+</div>
+</div>
+<div class="hidden md:flex space-x-1">
+<a class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors" href="#">
+                        Dashboard
+                    </a>
+<a class="px-4 py-2 rounded-lg text-sm font-medium text-primary bg-indigo-50 dark:bg-indigo-900/20 transition-colors" href="#">
+                        Daily Feed
+                    </a>
+<a class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors" href="#">
+                        My Skills
+                    </a>
+<a class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors" href="#">
+                        Projects
+                    </a>
+<a class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors" href="#">
+                        Analytics
+                    </a>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:block w-32">
+<div class="flex justify-between text-xs mb-1 text-slate-500 dark:text-slate-400">
+<span>Daily goals</span>
+<span>48%</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 48%"></div>
+</div>
+</div>
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+<span class="material-icons-round">settings</span>
+</button>
+<div class="h-9 w-9 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 p-0.5 cursor-pointer">
+<img alt="User Profile" class="rounded-full bg-white dark:bg-slate-800 object-cover h-full w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq3-kkydAjAWUazaxD2HMLeN7zOl_JbRkVCmXeAE882inu4QqQptRCMG8oGsQGK1jWJJdSjhnJ90itAF8LtdHgcsj41hPeHHgaLNzxDzVRJgCCRF0nsLYAb-5qE4lQoghSX6GvWT-QItI2u-ZKwWbkEnDlak0RT9j6d0_JD0n4It4QlhclnA5FVfaNUyxLql6bsWGqjjZNeFMPTB2upksPiktKDPadEiX6HM2Aw77g9-AtLbXnok3x7wgaiA5vr0PBX-6YlWBsDig"/>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<header class="mb-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 font-medium mb-1">
+<span class="material-icons-round text-base">calendar_today</span>
+                        October 24, 2024
+                    </div>
+<h2 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">Daily Tech Feed</h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl">
+                        Good Morning, Alex. Here is your synthesized intelligence briefing.
+                    </p>
+</div>
+<div class="w-full md:w-auto bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm min-w-[280px]">
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-bold text-slate-800 dark:text-slate-200">Synthesis Progress</span>
+<span class="text-xs font-semibold text-primary">2/4 Reviewed</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full transition-all duration-500" style="width: 50%"></div>
+</div>
+</div>
+</div>
+</header>
+<section class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
+<div class="flex items-center gap-2 w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0 scrollbar-hide">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-full text-sm font-medium shadow-sm shadow-indigo-500/20 hover:bg-indigo-700 transition-colors whitespace-nowrap">
+<span class="material-icons-round text-lg">public</span>
+                    All Updates
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-full text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors whitespace-nowrap">
+<span class="material-icons-round text-lg text-slate-400">verified_user</span>
+                    Role Specific
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-full text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors whitespace-nowrap">
+<span class="material-icons-round text-lg text-slate-400">bookmark</span>
+                    Saved Items
+                </button>
+</div>
+<div class="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
+<span class="uppercase tracking-wider">View:</span>
+<div class="flex bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-1">
+<button class="p-1 rounded bg-slate-100 dark:bg-slate-700 text-primary">
+<span class="material-icons-round text-lg">grid_view</span>
+</button>
+<button class="p-1 rounded hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-icons-round text-lg">view_list</span>
+</button>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+<article class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition-shadow group overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-red-500 rounded-l-2xl"></div>
+<div class="flex justify-between items-start mb-4 pl-3">
+<div class="flex items-center gap-3">
+<span class="text-xs font-mono text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded">#RC-19-001</span>
+<span class="flex items-center gap-1 text-xs font-bold text-red-600 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded-full">
+<span class="material-icons-round text-sm">bolt</span> High Impact
+                        </span>
+</div>
+<span class="material-icons-round text-slate-400 text-lg">warning</span>
+</div>
+<div class="pl-3">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 leading-snug">React 19 Release Candidates</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-2">
+                        New concurrency features and automatic memoization are now available. Several legacy hooks are deprecated in this RC version.
+                    </p>
+<div class="flex items-center gap-3 text-xs text-slate-500 mb-5">
+<div class="flex items-center gap-1 font-medium">
+<span class="material-icons-round text-sm">article</span> React Blog
+                        </div>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span>2 hours ago</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span class="bg-indigo-50 dark:bg-indigo-900/30 text-primary px-2 py-0.5 rounded font-medium">Frontend</span>
+</div>
+<div class="bg-red-50/50 dark:bg-red-900/10 rounded-xl p-4 border border-red-100 dark:border-red-900/30 mb-6">
+<span class="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-wide block mb-1">Why It Matters</span>
+<p class="text-sm text-slate-700 dark:text-slate-300">
+                            This update deprecates legacy hooks used extensively in <span class="underline decoration-slate-400 underline-offset-2">Project Alpha</span>. An immediate compatibility check is recommended.
+                        </p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-700/50">
+<div class="flex items-center gap-2">
+<span class="text-[10px] uppercase font-bold text-slate-400">Role:</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Sen. Dev</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="text-xs font-medium text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">Read Later</button>
+<button class="bg-primary hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-1 transition-colors">
+                                Update Skill <span class="material-icons-round text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<article class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition-shadow group overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-purple-600 rounded-l-2xl"></div>
+<div class="flex justify-between items-start mb-4 pl-3">
+<div class="flex items-center gap-3">
+<span class="text-xs font-mono text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded">#SEC-24-892</span>
+<span class="flex items-center gap-1 text-xs font-bold text-purple-600 bg-purple-50 dark:bg-purple-900/20 px-2 py-1 rounded-full">
+<span class="material-icons-round text-sm">gpp_maybe</span> Critical
+                        </span>
+</div>
+<span class="material-icons-round text-slate-400 text-lg">save</span>
+</div>
+<div class="pl-3">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 leading-snug">Global Cloud Credentials Leak</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-2">
+                        A major provider has identified a leak affecting cached credentials in edge nodes. Rotation is mandatory for all service accounts.
+                    </p>
+<div class="flex items-center gap-3 text-xs text-slate-500 mb-5">
+<div class="flex items-center gap-1 font-medium">
+<span class="material-icons-round text-sm">source</span> TechCrunch
+                        </div>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span>45 mins ago</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span class="bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 px-2 py-0.5 rounded font-medium">DevOps</span>
+</div>
+<div class="bg-purple-50/50 dark:bg-purple-900/10 rounded-xl p-4 border border-purple-100 dark:border-purple-900/30 mb-6">
+<span class="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wide block mb-1">Why It Matters</span>
+<p class="text-sm text-slate-700 dark:text-slate-300">
+                            Requires immediate audit for all production environments. Automated rotation scripts may need manual override.
+                        </p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-700/50">
+<div class="flex items-center gap-2">
+<span class="text-[10px] uppercase font-bold text-slate-400">Role:</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Admin</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-slate-900 dark:bg-black text-white hover:bg-slate-800 dark:hover:bg-slate-900 text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-1 transition-colors shadow-lg shadow-slate-900/20">
+                                Action Required <span class="material-icons-round text-sm">priority_high</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<article class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition-shadow group overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-500 rounded-l-2xl"></div>
+<div class="flex justify-between items-start mb-4 pl-3">
+<div class="flex items-center gap-3">
+<span class="text-xs font-mono text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded">#TRD-AI-004</span>
+<span class="flex items-center gap-1 text-xs font-bold text-blue-600 bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded-full">
+<span class="material-icons-round text-sm">trending_up</span> Medium
+                        </span>
+</div>
+<span class="material-icons-round text-slate-400 text-lg">lightbulb</span>
+</div>
+<div class="pl-3">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 leading-snug">The Shift to Agentic AI Workflows</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-2">
+                        New frameworks are moving beyond simple chat interfaces to autonomous agents that can plan and execute multi-step tasks.
+                    </p>
+<div class="flex items-center gap-3 text-xs text-slate-500 mb-5">
+<div class="flex items-center gap-1 font-medium">
+<span class="material-icons-round text-sm">rss_feed</span> AI Weekly
+                        </div>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span>5 hours ago</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span class="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded font-medium">Strategy</span>
+</div>
+<div class="bg-blue-50/50 dark:bg-blue-900/10 rounded-xl p-4 border border-blue-100 dark:border-blue-900/30 mb-6">
+<span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide block mb-1">Why It Matters</span>
+<p class="text-sm text-slate-700 dark:text-slate-300">
+                            Relevant for your upcoming Q4 architecture planning. Consider evaluating LangChain's new agent modules.
+                        </p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-700/50">
+<div class="flex items-center gap-2">
+<span class="text-[10px] uppercase font-bold text-slate-400">Role:</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Architect</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="text-xs font-medium text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">Dismiss</button>
+<button class="bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-600 text-slate-700 dark:text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-1 transition-colors">
+                                Read Full <span class="material-icons-round text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<article class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition-shadow group overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-emerald-500 rounded-l-2xl"></div>
+<div class="flex justify-between items-start mb-4 pl-3">
+<div class="flex items-center gap-3">
+<span class="text-xs font-mono text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded">#TOOL-FG-12</span>
+<span class="flex items-center gap-1 text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded-full">
+<span class="material-icons-round text-sm">build_circle</span> Low Impact
+                        </span>
+</div>
+<span class="material-icons-round text-slate-400 text-lg">design_services</span>
+</div>
+<div class="pl-3">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 leading-snug">Figma Variables Update</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-2">
+                        Support for typography variables and extended collections has been rolled out to the beta channel.
+                    </p>
+<div class="flex items-center gap-3 text-xs text-slate-500 mb-5">
+<div class="flex items-center gap-1 font-medium">
+<span class="material-icons-round text-sm">description</span> Figma Release Notes
+                        </div>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span>Yesterday</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+</div>
+<div class="bg-emerald-50/50 dark:bg-emerald-900/10 rounded-xl p-4 border border-emerald-100 dark:border-emerald-900/30 mb-6">
+<span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide block mb-1">Why It Matters</span>
+<p class="text-sm text-slate-700 dark:text-slate-300">
+                            Enables more scalable design system maintenance for the UI team.
+                        </p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-700/50">
+<div class="flex items-center gap-2">
+<span class="text-[10px] uppercase font-bold text-slate-400">Role:</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Designer</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-primary hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-1 transition-colors">
+                                Try Feature <span class="material-icons-round text-sm">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="flex flex-col items-center justify-center py-10 text-slate-400">
+<div class="w-12 h-12 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center mb-4">
+<span class="material-icons-round text-slate-500 dark:text-slate-400 text-2xl">check</span>
+</div>
+<p class="text-sm font-medium">You're caught up on high-impact news.</p>
+</div>
+</main>
+<script>
+        // Simple dark mode toggle logic for demonstration
+        // In a real app, this would check system preference or local storage
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+</body></html>

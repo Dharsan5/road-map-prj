@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Roadmaps Management - Learning OS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3b82f6", // Royal Blue
+                        "background-light": "#f8fafc", // Slate 50
+                        "background-dark": "#0f172a", // Slate 900
+                        "card-light": "#ffffff",
+                        "card-dark": "#1e293b", // Slate 800
+                        "text-main-light": "#0f172a",
+                        "text-main-dark": "#f1f5f9",
+                        "text-sub-light": "#64748b",
+                        "text-sub-dark": "#94a3b8",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        'xl': '0.75rem',
+                        '2xl': '1rem',
+                        '3xl': '1.5rem',
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02)',
+                        'glow': '0 0 15px rgba(59, 130, 246, 0.15)',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark transition-colors duration-300 antialiased min-h-screen flex flex-col">
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 cursor-pointer">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white shadow-glow">
+<span class="material-icons-round text-lg">school</span>
+</div>
+<span class="font-bold text-lg tracking-tight">Learning OS</span>
+</div>
+<div class="hidden md:flex items-center space-x-1 bg-gray-100 dark:bg-slate-800 p-1 rounded-full">
+<a class="px-4 py-1.5 text-sm font-medium text-text-sub-light dark:text-text-sub-dark rounded-full hover:bg-white dark:hover:bg-slate-700 hover:shadow-sm transition-all" href="#">Dashboard</a>
+<a class="px-4 py-1.5 text-sm font-medium text-primary bg-white dark:bg-slate-700 shadow-sm rounded-full transition-all" href="#">Roadmaps</a>
+<a class="px-4 py-1.5 text-sm font-medium text-text-sub-light dark:text-text-sub-dark rounded-full hover:bg-white dark:hover:bg-slate-700 hover:shadow-sm transition-all" href="#">Neural Lab</a>
+<a class="px-4 py-1.5 text-sm font-medium text-text-sub-light dark:text-text-sub-dark rounded-full hover:bg-white dark:hover:bg-slate-700 hover:shadow-sm transition-all" href="#">Profile</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full px-3 py-1.5 w-64 focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+<span class="material-icons-round text-gray-400 text-sm">search</span>
+<input class="bg-transparent border-none text-sm w-full focus:ring-0 text-gray-700 dark:text-gray-200 placeholder-gray-400 px-2" placeholder="Search nodes..." type="text"/>
+<span class="text-[10px] font-bold text-gray-400 border border-gray-200 dark:border-slate-600 rounded px-1.5 py-0.5">⌘K</span>
+</div>
+<button class="relative p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-icons-round">notifications_none</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<img alt="User Avatar" class="w-9 h-9 rounded-full border-2 border-white dark:border-slate-700 shadow-sm cursor-pointer hover:opacity-90 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUKYYALYEf44PNjsyYmDTimSPkGxIN8gXHV9JIuLTsv4Ca1VOTPe1kZcMkVvsP4V7PmzAodeUNoZAKOt6qX4Bd1by6rj3nh4CuXkKOV4x0lGv6ehls8O9ZJas2Ml1sCkUIOu8j4hLx7zc_WC1Cl_zEO-Jka2EB-orGj3JqcXRjssb_UuO4TbBczlbUJ6OzVIROdYwmB4n1U44E7VqGG1mEIVHPA2Kb75MjtKrkchy5SgvwLApWe5rg57-j10zpv7kjAoCZY2JYTlU"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-3">
+<h1 class="text-3xl md:text-4xl font-bold text-text-main-light dark:text-text-main-dark tracking-tight">Roadmaps Management</h1>
+<span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-400 rounded-full border border-blue-100 dark:border-blue-800">v2.4 Stable</span>
+</div>
+<p class="text-text-sub-light dark:text-text-sub-dark max-w-2xl text-base leading-relaxed">
+                    Manage system-recommended neural paths or architect custom trajectories using the builder. Optimize your learning flow with AI-driven insights.
+                </p>
+</div>
+<div class="flex items-center gap-3">
+<button class="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors shadow-sm">
+<span class="material-icons-round text-base text-gray-500 dark:text-gray-400">history</span>
+                    History
+                </button>
+<button class="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors shadow-sm">
+<span class="material-icons-round text-base text-gray-500 dark:text-gray-400">upload_file</span>
+                    Import
+                </button>
+</div>
+</header>
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<article class="group relative flex flex-col sm:flex-row bg-card-light dark:bg-card-dark rounded-2xl p-5 gap-6 border border-gray-100 dark:border-slate-700 shadow-soft hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-900/50 transition-all duration-300">
+<div class="w-full sm:w-36 h-36 shrink-0 rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+<div class="absolute top-2 left-2 z-10">
+<span class="px-1.5 py-0.5 text-[10px] font-bold uppercase bg-white/10 backdrop-blur-md text-white border border-white/20 rounded">Popular</span>
+</div>
+<img alt="Abstract blue circular shape" class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-overlay" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZSR4pDSoXz11hmKs1OvzNiRr5e3QC8dLnQmmjiu66V6oTYeLMMvKv9uQTt0cJHp36fBcRg_-E1qRqPzKfXA31r_hW0dhf4IfF_HX6Jn1UxFIRjC16RvIk5kKcBOVxu-gOisaLv2EHXEXdXWIh065nYnwOk0ELG-remzaGsNcZlqymIkxS5K_aXWRJ6aJQeMz2I4935VYu2ecA_4MHTYeC1CJyjD4bkbmNXLQ3vYkIRA06uJMcqfp3gSdVWbyPyHvttWJf2Lf4cpY"/>
+<span class="material-icons-round text-5xl text-blue-400/80 relative z-0">all_inclusive</span>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">Full Stack Neural Architect</h3>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+<span class="material-icons-round">more_horiz</span>
+</button>
+</div>
+<p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2 mb-4">
+                            Master the complete stack from React frontends to Python-based AI backends. Includes system design modules.
+                        </p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-6 text-xs text-text-sub-light dark:text-text-sub-dark">
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-base text-blue-500">schedule</span>
+<span>6 Months</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-base text-purple-500">bar_chart</span>
+<span>Advanced</span>
+</div>
+<div class="flex items-center gap-1.5 ml-auto">
+<span class="text-[10px] uppercase font-semibold text-gray-400">Hiring</span>
+<div class="flex -space-x-1.5">
+<img alt="hiring" class="w-5 h-5 rounded-full border border-white dark:border-slate-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnDy33DRQOFa_p6KfS2mZ1lQZpNDRM5wk2CNFDx28YmylqTg93ILeUUf7F6UqawbmbKG5Ljb8VZXziHJKJ1td_ZcZneJiCVL02WppLetJuKJjOSXx8xBlcB1UWlLFiuzugALUnfYR1yl2XMTzBKY1AYlaAFbR_yfQsUcsD6zHYDjRR4ft1yMu5HeO0gS9rDjJKSfubGMnPrLpS2DydaBcFHQC1xDS1m82VYVkc-bT8gb35GNVX-oNnVrnGK1Q-fphrvVagE9Nl44o"/>
+<img alt="hiring" class="w-5 h-5 rounded-full border border-white dark:border-slate-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTvdiV4LxYLIGqUsdwpMMU_trEoTideoBhguJEOEYlJ8Vh7-HXigvAHEXT-vCO2Kj7vcDAIXrmK8rJCG0c_bf1Pbs1Tt-NKcd3Yo3LumK6VdQwBVl3mRMEsIWVIgAehCbwMgJNwc7P98kzu94PnkKDITgLbcF8qDiGzAU8xf0KsjGOZaThRdX3UnRj9Iq96ooo2oSAmCY-JSzT-FS4NI1YcjuBf7jtum1kTUJFuPb7rf2TJ8MP_NFDJjwtdbPVo8pCL0yCDI6DLng"/>
+<div class="w-5 h-5 rounded-full border border-white dark:border-slate-800 bg-gray-100 dark:bg-slate-700 text-[9px] flex items-center justify-center font-bold text-gray-500">+4</div>
+</div>
+</div>
+</div>
+<div class="pt-3 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center text-xs">
+<div class="flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-medium">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+</span>
+                                Live: System Design Workshop
+                             </div>
+<span class="font-mono text-gray-400">Starts in 2h 15m</span>
+</div>
+</div>
+</div>
+</article>
+<article class="group relative flex flex-col sm:flex-row bg-card-light dark:bg-card-dark rounded-2xl p-5 gap-6 border border-gray-100 dark:border-slate-700 shadow-soft hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-900/50 transition-all duration-300">
+<div class="w-full sm:w-36 h-36 shrink-0 rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+<div class="absolute top-2 left-2 z-10">
+<span class="px-1.5 py-0.5 text-[10px] font-bold uppercase bg-white/10 backdrop-blur-md text-white border border-white/20 rounded">Popular</span>
+</div>
+<img alt="Abstract blue circular shape" class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-overlay" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1LbbctMjIyrCRgEkBwF2_6lmRzLY2rJQ-ume8wRsKQ7aH8aZnLt33cHxSm5m0fEtQc9VEUkIKmsW4-9Rbux2x_KQk0IF2mN6aGb-0q6O46Dlse8ZIIG2yvexJKmQwCur2eY0WeGxxA5YItiqKchxcn9IjxGOFoHctRguHGLSRm1v4_8AM8hVNcAO2zf0dZzCE9zWN2OJho1y8hoS5t61468LwXaCuCynQgRuhhowVDvDmu6z7N_Abg_mVMue5W7WR8WcdtFNFW8Q"/>
+<span class="material-icons-round text-5xl text-blue-400/80 relative z-0">all_inclusive</span>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">Full Stack Neural Architect</h3>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+<span class="material-icons-round">more_horiz</span>
+</button>
+</div>
+<p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2 mb-4">
+                            Master the complete stack from React frontends to Python-based AI backends. Includes system design modules.
+                        </p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-6 text-xs text-text-sub-light dark:text-text-sub-dark">
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-base text-blue-500">schedule</span>
+<span>6 Months</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-base text-purple-500">bar_chart</span>
+<span>Advanced</span>
+</div>
+<div class="flex items-center gap-1.5 ml-auto">
+<span class="text-[10px] uppercase font-semibold text-gray-400">Hiring</span>
+<div class="flex -space-x-1.5">
+<img alt="hiring" class="w-5 h-5 rounded-full border border-white dark:border-slate-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArsq43Nn9Bbs1j-Y-py5gbiWcgkfVtk2ySv0kNYQY2jOX2npVeH_p6ul-qBTgxaOsELlfzgBJ9ln4ETQQLAaaqXh0ghFAUh6-D3ameczUlQ9eWjBf5sATW5Q3jIoDtNWBLKwaG3w1rQJDTWrsxTgdOKEdjCJQ5sb05aVdHm7sDXJQ-DaleqRtE8kTcrM2vVFYrfRcV1aDvp36D48BY3GRVJGbfRfy8CYVLhb0jQwBkxc8qIr2fFm6W4JLC-vIoK4b1kBEddNHouWE"/>
+<img alt="hiring" class="w-5 h-5 rounded-full border border-white dark:border-slate-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI2SGY8oBzDSnzI6PaE3-Psuqfr9czhytdx-8iY4rwtCSfRLOl_Eiky12Xktv_4oW8o6kNiVbAIe0ry20qxImfePRIfNf9DTJ-6DL47-aeTKkeDl1bSu5sJ4ssq22O3i0kQNFLLH6ygpMKLeKui1rCobbzj0Bt6lkLgvjVBZI_aeZOESGe1EwnFcWH9cB5I4wcAmLlrpz-1a2PJrKBTaJl7LCiNNQ9In9rY2uIhieG_kJfMcSaFb6RXzoQn9wiKc_DUxhN_R39RqA"/>
+<div class="w-5 h-5 rounded-full border border-white dark:border-slate-800 bg-gray-100 dark:bg-slate-700 text-[9px] flex items-center justify-center font-bold text-gray-500">+8</div>
+</div>
+</div>
+</div>
+<div class="pt-3 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center text-xs">
+<div class="flex items-center gap-1.5 text-gray-500 dark:text-gray-400 font-medium">
+<span class="relative inline-flex rounded-full h-2 w-2 bg-gray-300 dark:bg-gray-600"></span>
+                                Next cohort opens soon
+                             </div>
+<span class="font-mono text-gray-400">Starts in 2h 15m</span>
+</div>
+</div>
+</div>
+</article>
+<article class="group relative flex flex-col sm:flex-row bg-card-light dark:bg-card-dark rounded-2xl p-5 gap-6 border border-gray-100 dark:border-slate-700 shadow-soft hover:shadow-lg hover:border-teal-200 dark:hover:border-teal-900/50 transition-all duration-300">
+<div class="w-full sm:w-36 h-36 shrink-0 rounded-xl bg-slate-900 overflow-hidden relative group-hover:scale-[1.02] transition-transform">
+<img alt="Abstract tech wave blue" class="absolute inset-0 w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxWIVXEHuSIleUBAE-XF_7X475tjdVUWorC0CxXf1I_S9HBGsUuEmSqUGBgQyO90_WVYBbzAy5_DxoeArB_TTuYDimTi33PNB0BeH3RQrgwOtlPQ_gNplWWNq4uVnlaoaYIEqnycRA0dhqjmos9WmIRFbOlskRhhN39094RcJl9Bmcq83_olT1D8w6LiImiw4TSjiiMKRBhK2Gjr4fZZ6AlrDNz61XzYlLfCPk2_IBlx-GexY-DgiQrHgIKfwGL0ZW4DYpZQLt6QQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80"></div>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-teal-500 transition-colors">DevOps &amp; Cloud Native</h3>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+<span class="material-icons-round">more_horiz</span>
+</button>
+</div>
+<p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2 mb-4">
+                            Infrastructure as code. Kubernetes mastery, CI/CD pipelines for large scale distributed systems.
+                        </p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-6 text-xs text-text-sub-light dark:text-text-sub-dark">
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-base text-blue-500">schedule</span>
+<span>4 Months</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-base text-teal-500">translate</span>
+<span>EN, DE</span>
+</div>
+<div class="flex items-center gap-1.5 ml-auto">
+<span class="text-[10px] uppercase font-semibold text-gray-400">Hiring</span>
+<div class="flex -space-x-1.5">
+<img alt="hiring" class="w-5 h-5 rounded-full border border-white dark:border-slate-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3CoFTp4C4RrNLxlhzEipp1eteDmDpLZXHamSIc_MTGr8HC4ieINLHXtQWjM74tkz0crUKIBkmIIjXdcbNBIxTy53roEnNDLOrfxmgycR5iQX8WRbWWxOFUZOk1_5WMUcYD7RYMflsskkMhYhS2l8NyQeqpnQMC3UNxNoi2U3B0ujM3apX4mX7uxt6BSM3QbuIJE3tcbKlcEj_QlHr4F7qU3uLpKobe0lSM8DWTK3tOJxjLP-wvwvpwN3rzpopqgnDLxCTh4nwGvs"/>
+<img alt="hiring" class="w-5 h-5 rounded-full border border-white dark:border-slate-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo5vYBBsSPYqGOi3roVezLKMnkaNm8O0pPY_rljC5dqngUZrwB4DyZwoMccnh39_MLjYPvLwBvJCYky67lrvO2LkP7ZpGx1AcucKNiod_k7h82j_Xm603diIBV3QSmCtkDNDj2fs2KljXXtiM1k1Ap6qvWgVUfS_Sc78T80rb8Fd70U24mjGRhF7CNEE434cZT4VoInhqmm9u3VnHv5_SDbJMHjdGnkWWrhaUIJiaZboJ2CdZM1PXjdyzleNQJC-w8br_NLTd4ZYo"/>
+<div class="w-5 h-5 rounded-full border border-white dark:border-slate-800 bg-gray-100 dark:bg-slate-700 text-[9px] flex items-center justify-center font-bold text-gray-500">+2</div>
+</div>
+</div>
+</div>
+<div class="pt-3 border-t border-transparent flex justify-between items-center text-xs opacity-0">
+<span>Spacer</span>
+</div>
+</div>
+</div>
+</article>
+<article class="group relative flex flex-col sm:flex-row bg-card-light dark:bg-card-dark rounded-2xl p-5 gap-6 border border-gray-100 dark:border-slate-700 shadow-soft hover:shadow-lg hover:border-teal-200 dark:hover:border-teal-900/50 transition-all duration-300">
+<div class="w-full sm:w-36 h-36 shrink-0 rounded-xl bg-slate-900 overflow-hidden relative group-hover:scale-[1.02] transition-transform">
+<img alt="Abstract tech wave blue" class="absolute inset-0 w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcMtfRxllpsYlEZ7Bb24qeFQLDPzDH2LIxSKW4Lj14QDYYzXkK4RjudjZmW-NYzgcL56mW0M9YAARKlOrLTi1g_M2lqeutw_VCNLJZM5hsPAEB7tuALjZPY6xu_SKbLset5Wr3iReWK-VsetObsT7-bkXVxHMLhRz5AxkfAT8JqaVkXf6HSYFnuw0ekb8MqHa4u6KUyGKh3RoB_SKbmxgvKkrECN7I75PiUKB0YsgucPruB3zNv2qA2LJT561Tz18v_6SI-ABim1c"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80"></div>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-teal-500 transition-colors">DevOps &amp; Cloud Native</h3>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+<span class="material-icons-round">more_horiz</span>
+</button>
+</div>
+<p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2 mb-4">
+                            Infrastructure as code. Kubernetes mastery, CI/CD pipelines for large scale distributed systems.
+                        </p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-6 text-xs text-text-sub-light dark:text-text-sub-dark">
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-base text-blue-500">schedule</span>
+<span>4 Months</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-base text-teal-500">translate</span>
+<span>EN, DE</span>
+</div>
+<div class="flex items-center gap-1.5 ml-auto">
+<span class="text-[10px] uppercase font-semibold text-gray-400">Hiring</span>
+<div class="flex -space-x-1.5">
+<img alt="hiring" class="w-5 h-5 rounded-full border border-white dark:border-slate-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADKDzG7WbsZeRQ_JEEjd6X4ec8k_VQ4_L-JNvIRMTy02ECTp56kJHNc2O82gYU7jVssjUAsyHuEXXEkr3nUvuej5r2IKz--RAYIRqLbRRbHhMhcQtWxBFMKoHceN_z-l8WlZKcE9Zt_WMK9BqVVYXphVQGMNV9u7Xeew2Xp4QOXWRH4RIjIsOvWvgPHPk_8hRrHZg350WxV4soEc2fGpE5mvbvQdyW-sghK-LQ6fxWcT3TdW0HmCGkitRoLoEf68VCpGQ7s9ZCeJM"/>
+<div class="w-5 h-5 rounded-full border border-white dark:border-slate-800 bg-gray-100 dark:bg-slate-700 text-[9px] flex items-center justify-center font-bold text-gray-500">+1</div>
+</div>
+</div>
+</div>
+<div class="pt-3 border-t border-transparent flex justify-between items-center text-xs opacity-0">
+<span>Spacer</span>
+</div>
+</div>
+</div>
+</article>
+<article class="group relative flex flex-col sm:flex-row bg-card-light dark:bg-card-dark rounded-2xl p-5 gap-6 border border-gray-100 dark:border-slate-700 shadow-soft hover:shadow-lg hover:border-indigo-200 dark:hover:border-indigo-900/50 transition-all duration-300">
+<div class="w-full sm:w-36 h-36 shrink-0 rounded-xl bg-black overflow-hidden relative group-hover:scale-[1.02] transition-transform">
+<img alt="Matrix code style background" class="absolute inset-0 w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjxlR6dMXh0WBSvSfbGdKCHo3YL05TMepOiWG5Np3A8uBZydFIIwrWeRAUXbstpqV9FwGB-sspunQ_UWJQ5Eheu8Dqk6zM_cA_32m8qnUIfnXB23RlbzQhUkHLdR6hcbGIbKAXVsv0GsDb1_RkyKwA2HYge39XWCXFK9bh9jOGC4CceSQcUm-lWqyu2OM3yxqXwM4mpgH4WrgC092ZERg1qFzJGtLsVIy8XOmP73RMoX_A9x8E5ik66oAt2dHcS2SZvtPO_Vmn-_s"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-indigo-500 transition-colors">Legacy Systems Migration</h3>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+<span class="material-icons-round">more_horiz</span>
+</button>
+</div>
+<p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2 mb-4">
+                            Specialized track for upgrading COBOL/Fortran mainframes to modern cloud architectures.
+                        </p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-6 text-xs text-text-sub-light dark:text-text-sub-dark">
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-base text-blue-500">schedule</span>
+<span>8 Months</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-base text-red-500">military_tech</span>
+<span>Expert</span>
+</div>
+</div>
+<div class="pt-3 border-t border-transparent flex justify-between items-center text-xs opacity-0">
+<span>Spacer</span>
+</div>
+</div>
+</div>
+</article>
+<article class="group relative flex flex-col sm:flex-row bg-card-light dark:bg-card-dark rounded-2xl p-5 gap-6 border border-gray-100 dark:border-slate-700 shadow-soft hover:shadow-lg hover:border-indigo-200 dark:hover:border-indigo-900/50 transition-all duration-300">
+<div class="w-full sm:w-36 h-36 shrink-0 rounded-xl bg-black overflow-hidden relative group-hover:scale-[1.02] transition-transform">
+<img alt="Matrix code style background" class="absolute inset-0 w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLhpdftJeGnppOUJerxue-drIFoY9pNn2DbvQ2Tg1g_mBomQ-o5P06D-VkBLxj2izzaQyCG3ys3Q11JRqp2p8-VgKLDEaqTX0NTOc0rUnkgJdUc_xVV7g_lsrMMgNOtlms5xnLvS7pIJzvLZLqo-FLfPxaGqaTks57k_dYQ1df5dlRJ7VhPc09EAIZMcWkkblqem5T3q29qzATx3L5_77bj4_nrevUimgYxpUvKtOH9GJWW1mZDy4lJaN5uSXzC69AdJaGp0knkOY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-indigo-500 transition-colors">Legacy Systems Migration</h3>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+<span class="material-icons-round">more_horiz</span>
+</button>
+</div>
+<p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2 mb-4">
+                            Specialized track for upgrading COBOL/Fortran mainframes to modern cloud architectures.
+                        </p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-6 text-xs text-text-sub-light dark:text-text-sub-dark">
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-base text-blue-500">schedule</span>
+<span>8 Months</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-base text-red-500">military_tech</span>
+<span>Expert</span>
+</div>
+</div>
+<div class="pt-3 border-t border-transparent flex justify-between items-center text-xs opacity-0">
+<span>Spacer</span>
+</div>
+</div>
+</div>
+</article>
+</section>
+</main>
+<footer class="mt-auto border-t border-gray-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+<div>
+                © 2024 Learning OS Inc. Intelligent Systems.
+            </div>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Privacy Neural</a>
+<a class="hover:text-primary transition-colors" href="#">Data Nodes</a>
+<a class="hover:text-primary transition-colors" href="#">Support</a>
+</div>
+</div>
+</footer>
+<script>
+        // Check local storage or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+
+</body></html>
