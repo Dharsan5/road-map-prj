@@ -7,7 +7,7 @@ export default function EventsCalendar() {
             </header>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Calendar */}
+                {/* Cal */}
                 <div className="lg:col-span-2">
                     <div className="bg-card-light dark:bg-card-dark rounded-2xl p-6 shadow-card border border-slate-100 dark:border-slate-700 mb-6">
                         <div className="flex items-center justify-between mb-6">
