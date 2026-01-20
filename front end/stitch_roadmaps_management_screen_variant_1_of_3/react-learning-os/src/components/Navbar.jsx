@@ -50,6 +50,9 @@ export default function Navbar() {
                         <Link to="/events" className="hover:text-primary transition-colors">
                             Events
                         </Link>
+                        <Link to="/sessions" className="hover:text-primary transition-colors">
+                            Sessions
+                        </Link>
                         <Link to="/community" className="hover:text-primary transition-colors">
                             Community
                         </Link>

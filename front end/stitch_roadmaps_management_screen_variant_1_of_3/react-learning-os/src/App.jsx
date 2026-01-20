@@ -20,6 +20,9 @@ import TopicProjectIdeas from './pages/TopicProjectIdeas';
 import VideoLessonScreen from './pages/VideoLessonScreen';
 import RoadmapPathSelection from './pages/RoadmapPathSelection';
 import ModuleDetails from './pages/ModuleDetails';
+import SessionHome from './pages/SessionHome';
+import CreateSession from './pages/CreateSession';
+import SessionDetails from './pages/SessionDetails';
 
 function App() {
   return (
@@ -40,6 +43,9 @@ function App() {
           <Route path="compare-paths" element={<CompareLearningPaths />} />
           <Route path="tech-feed" element={<DailyTechFeed />} />
           <Route path="discover-sessions" element={<DiscoverLearningSession />} />
+          <Route path="sessions" element={<SessionHome />} />
+          <Route path="sessions/create" element={<CreateSession />} />
+          <Route path="sessions/:id" element={<SessionDetails />} />
           <Route path="modules/:id" element={<ModuleDetails />} />
           <Route path="schedule-session" element={<ScheduleCollaborativeSession />} />
           <Route path="project-ideas" element={<TopicProjectIdeas />} />
