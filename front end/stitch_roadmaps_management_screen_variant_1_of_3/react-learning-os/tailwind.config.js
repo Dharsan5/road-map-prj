@@ -8,12 +8,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#2563eb",
-        "primary-dark": "#1d4ed8",
-        "background-light": "#F1F5F9",
-        "background-dark": "#0B1120",
+        primary: "#3B82F6",
+        "primary-dark": "#2563EB",
+        "background-light": "#F8FAFC",
+        "background-dark": "#0F172A",
+        "surface-light": "#FFFFFF",
+        "surface-dark": "#1E293B",
         "card-light": "#FFFFFF",
         "card-dark": "#1E293B",
+        "text-main-light": "#0F172A",
+        "text-main-dark": "#F8FAFC",
+        "text-muted-light": "#64748B",
+        "text-muted-dark": "#94A3B8",
+        "accent-purple": "#8B5CF6",
+        "accent-green": "#10B981",
+        "accent-yellow": "#F59E0B",
+        "muted-light": "#64748B",
+        "muted-dark": "#94A3B8",
       },
       fontFamily: {
         display: ['"Plus Jakarta Sans"', 'sans-serif'],

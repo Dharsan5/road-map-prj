@@ -32,9 +32,9 @@ export default function EventsCalendar() {
                                 const hasEvent = [5, 12, 18, 25].includes(day);
                                 return (
                                     <div key={i} className={`aspect-square flex items-center justify-center rounded-lg text-sm ${day < 1 ? "text-slate-300 dark:text-slate-700" :
-                                            day === 14 ? "bg-primary text-white font-bold" :
-                                                hasEvent ? "bg-blue-50 dark:bg-blue-900/30 text-primary font-medium" :
-                                                    "hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer"
+                                        day === 14 ? "bg-primary text-white font-bold" :
+                                            hasEvent ? "bg-blue-50 dark:bg-blue-900/30 text-primary font-medium" :
+                                                "hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer"
                                         }`}>
                                         {day > 0 && day <= 31 ? day : ""}
                                     </div>
