@@ -24,7 +24,7 @@
 
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
@@ -38,4 +38,28 @@
 
 .dark .bg-glass {
   background: rgba(30, 41, 59, 0.7);
+}
+
+.material-icons-round {
+  font-family: 'Material Icons Round';
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.dark .glass-nav {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
 }

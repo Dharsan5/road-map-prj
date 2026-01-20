@@ -18,6 +18,7 @@ import LearningPathDashboard from './pages/LearningPathDashboard';
 import ScheduleCollaborativeSession from './pages/ScheduleCollaborativeSession';
 import TopicProjectIdeas from './pages/TopicProjectIdeas';
 import VideoLessonScreen from './pages/VideoLessonScreen';
+import RoadmapPathSelection from './pages/RoadmapPathSelection';
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
           <Route index element={<CommandCenterDashboard />} />
           <Route path="dashboard" element={<CommandCenterDashboard />} />
           <Route path="roadmaps" element={<RoadmapsManagement />} />
+          <Route path="roadmaps/:roadmapId" element={<RoadmapPathSelection />} />
+          <Route path="learning-paths/:pathId" element={<LearningPathDashboard />} />
           <Route path="community" element={<CommunityHub />} />
           <Route path="events" element={<EventsCalendar />} />
           <Route path="events/:id" element={<EventDetails />} />
@@ -36,7 +39,6 @@ function App() {
           <Route path="compare-paths" element={<CompareLearningPaths />} />
           <Route path="tech-feed" element={<DailyTechFeed />} />
           <Route path="discover-sessions" element={<DiscoverLearningSession />} />
-          <Route path="learning-paths/:id?" element={<LearningPathDashboard />} />
           <Route path="modules/:id" element={<JavaScriptModuleDetails />} />
           <Route path="schedule-session" element={<ScheduleCollaborativeSession />} />
           <Route path="project-ideas" element={<TopicProjectIdeas />} />

@@ -1,103 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// Roadmap Level Visualization Component
-function RoadmapLevelVisualization({ roadmap }) {
-    return (
-        <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-gray-200 dark:border-slate-700 shadow-soft mb-8">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
-                {roadmap.title}: Hierarchical Structure
-            </h2>
-
-            <div className="flex items-center justify-center gap-8 overflow-x-auto pb-4">
-                {/* Root Level */}
-                <div className="flex flex-col items-center">
-                    <div className="px-6 py-4 bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-700 dark:to-slate-600 text-white rounded-xl font-semibold text-center min-w-[140px] shadow-lg border-2 border-slate-700 dark:border-slate-500">
-                        {roadmap.title}
-                    </div>
-                </div>
-
-                {/* Connector */}
-                <div className="w-16 h-0.5 bg-slate-300 dark:bg-slate-600"></div>
-
-                {/* Level 1 Categories */}
-                <div className="flex flex-col gap-6">
-                    {roadmap.levels.map((level, idx) => (
-                        <div key={idx} className="flex items-center gap-8">
-                            {/* Category Box */}
-                            <div className="flex items-center gap-4">
-                                <div className="px-5 py-3 bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 rounded-lg font-medium text-center min-w-[160px] border border-orange-200 dark:border-orange-800 shadow-sm">
-                                    {level.category}
-                                </div>
-
-                                {/* Connector to sub-items */}
-                                <div className="w-12 h-0.5 bg-slate-300 dark:bg-slate-600"></div>
-                            </div>
-
-                            {/* Level 2 Sub-items */}
-                            <div className="flex flex-col gap-3">
-                                {level.items.map((item, itemIdx) => (
-                                    <div key={itemIdx} className="flex items-center gap-3">
-                                        <div className="w-8 h-0.5 bg-slate-300 dark:bg-slate-600"></div>
-                                        <div className="px-4 py-2 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg text-sm font-medium border border-blue-200 dark:border-blue-800 shadow-sm min-w-[180px]">
-                                            {item}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* Legend */}
-            <div className="mt-8 pt-6 border-t border-gray-200 dark:border-slate-700 flex justify-center gap-8 text-xs">
-                <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-700 dark:to-slate-600 rounded"></div>
-                    <span className="text-slate-600 dark:text-slate-400">Root Roadmap</span>
-                </div>
-                <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded"></div>
-                    <span className="text-slate-600 dark:text-slate-400">Level 1: Categories</span>
-                </div>
-                <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded"></div>
-                    <span className="text-slate-600 dark:text-slate-400">Level 2: Components</span>
-                </div>
-            </div>
-        </div>
-    );
-}
-
 export default function RoadmapsManagement() {
     const navigate = useNavigate();
-
-    // Sample roadmap with hierarchical structure
-    const sampleRoadmapStructure = {
-        title: "Full Stack Neural Architect",
-        levels: [
-            {
-                category: "User Journey",
-                items: [
-                    "Onboarding & Personalization",
-                    "Unified Visualization",
-                    "Natural Language Inquiry",
-                    "Automated Insight Generation",
-                    "Advanced Customization"
-                ]
-            },
-            {
-                category: "Technical Components",
-                items: [
-                    "Data Ingestion Layer",
-                    "Backend Core",
-                    "Quantitative Processing",
-                    "AI Integration",
-                    "Presentation Layer"
-                ]
-            }
-        ]
-    };
 
     return (
         <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
@@ -161,7 +66,7 @@ export default function RoadmapsManagement() {
                 ].map((roadmap, index) => (
                     <article
                         key={index}
-                        onClick={() => navigate('/learning-paths')}
+                        onClick={() => navigate(`/roadmaps/fullstack-${index + 1}`)}
                         className="group relative flex flex-col sm:flex-row bg-card-light dark:bg-card-dark rounded-2xl p-5 gap-6 border border-gray-100 dark:border-slate-700 shadow-soft hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-900/50 transition-all duration-300 cursor-pointer"
                     >
                         <div className="w-full sm:w-36 h-36 shrink-0 rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
