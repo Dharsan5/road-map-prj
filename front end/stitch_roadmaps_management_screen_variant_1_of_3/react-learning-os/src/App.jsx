@@ -19,6 +19,7 @@ import ScheduleCollaborativeSession from './pages/ScheduleCollaborativeSession';
 import TopicProjectIdeas from './pages/TopicProjectIdeas';
 import VideoLessonScreen from './pages/VideoLessonScreen';
 import RoadmapPathSelection from './pages/RoadmapPathSelection';
+import ModuleDetails from './pages/ModuleDetails';
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
           <Route path="compare-paths" element={<CompareLearningPaths />} />
           <Route path="tech-feed" element={<DailyTechFeed />} />
           <Route path="discover-sessions" element={<DiscoverLearningSession />} />
-          <Route path="modules/:id" element={<JavaScriptModuleDetails />} />
+          <Route path="modules/:id" element={<ModuleDetails />} />
           <Route path="schedule-session" element={<ScheduleCollaborativeSession />} />
           <Route path="project-ideas" element={<TopicProjectIdeas />} />
           <Route path="lessons/:id" element={<VideoLessonScreen />} />

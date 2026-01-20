@@ -33,7 +33,10 @@ export default function ModuleDetails() {
                             The Language of the Web. Master interactivity, logic, and modern app development.
                         </p>
                     </div>
-                    <button className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-200 px-8 py-4 rounded-xl font-bold shadow-xl shadow-slate-200/50 dark:shadow-none flex items-center gap-2 transition-all transform hover:-translate-y-1 active:scale-95 whitespace-nowrap">
+                    <button
+                        onClick={() => navigate('/lessons/dijkstra-algorithm')}
+                        className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-200 px-8 py-4 rounded-xl font-bold shadow-xl shadow-slate-200/50 dark:shadow-none flex items-center gap-2 transition-all transform hover:-translate-y-1 active:scale-95 whitespace-nowrap"
+                    >
                         Start Learning
                         <span className="material-icons-round text-lg">arrow_forward</span>
                     </button>
