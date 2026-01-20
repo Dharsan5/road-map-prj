@@ -44,6 +44,9 @@ export default function Navbar() {
                         <Link to="/roadmaps" className="text-primary">
                             Roadmaps
                         </Link>
+                        <Link to="/tech-feed" className="hover:text-primary transition-colors">
+                            Daily Feed
+                        </Link>
                         <Link to="/events" className="hover:text-primary transition-colors">
                             Events
                         </Link>

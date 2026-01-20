@@ -328,18 +328,6 @@ export default function CommunityHub() {
                     </div>
                 </div>
             </main>
-
-            {/* Footer */}
-            <footer className="mt-12 bg-white dark:bg-card-dark border-t border-gray-200 dark:border-gray-700 py-8">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-sm text-text-secondary-light dark:text-text-secondary-dark">© 2024 Learning OS Inc. Community Guidelines apply.</p>
-                    <div className="flex gap-6">
-                        <a className="text-sm text-text-secondary-light dark:text-text-secondary-dark hover:text-gray-900 dark:hover:text-white" href="#">Code of Conduct</a>
-                        <a className="text-sm text-text-secondary-light dark:text-text-secondary-dark hover:text-gray-900 dark:hover:text-white" href="#">Privacy</a>
-                        <a className="text-sm text-text-secondary-light dark:text-text-secondary-dark hover:text-gray-900 dark:hover:text-white" href="#">Help Center</a>
-                    </div>
-                </div>
-            </footer>
         </div>
     );
 }
