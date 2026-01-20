@@ -45,7 +45,7 @@ export default function Navbar() {
                             Roadmaps
                         </Link>
                         <Link to="/events" className="hover:text-primary transition-colors">
-                            Mentorship
+                            Events
                         </Link>
                         <Link to="/community" className="hover:text-primary transition-colors">
                             Community
