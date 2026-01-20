@@ -36,7 +36,7 @@ function App() {
           <Route path="compare-paths" element={<CompareLearningPaths />} />
           <Route path="tech-feed" element={<DailyTechFeed />} />
           <Route path="discover-sessions" element={<DiscoverLearningSession />} />
-          <Route path="learning-paths" element={<LearningPathDashboard />} />
+          <Route path="learning-paths/:id?" element={<LearningPathDashboard />} />
           <Route path="modules/:id" element={<JavaScriptModuleDetails />} />
           <Route path="schedule-session" element={<ScheduleCollaborativeSession />} />
           <Route path="project-ideas" element={<TopicProjectIdeas />} />

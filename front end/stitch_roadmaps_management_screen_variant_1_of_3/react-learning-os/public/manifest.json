@@ -1,0 +1,16 @@
+{
+    "name": "React Learning OS",
+    "short_name": "Learning OS",
+    "description": "A comprehensive learning platform for developers",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0891B2",
+    "icons": [
+        {
+            "src": "/vite.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ]
+}
