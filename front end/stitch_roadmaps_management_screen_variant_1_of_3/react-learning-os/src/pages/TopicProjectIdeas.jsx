@@ -1,40 +1,9 @@
+import { useNavigate } from 'react-router-dom';
+import { projects } from '../data/mockData';
+
 export default function TopicProjectIdeas() {
-    const projects = [
-        {
-            id: "PROJ-042",
-            title: "Stock Market Visualizer",
-            difficulty: "Beginner",
-            badge: "RK",
-            badgeColor: "orange",
-            problem: "New investors find it hard to visualize price trends over time from raw data tables. They need clear visual indicators.",
-            concepts: ["Matplotlib", "Line Charts", "CSV Parsing"],
-            time: "2-3 Hours",
-            collaboration: "Solo",
-            recommended: false
-        },
-        {
-            id: "PROJ-042",
-            title: "Sentiment Analysis Dashboard",
-            difficulty: "Intermediate",
-            badge: null,
-            problem: "Companies struggle to track live brand sentiment on social media manually. They need automation to react faster.",
-            concepts: ["Plotly Dash", "NLP Basics", "Real-time Data"],
-            time: "4-6 Hours",
-            collaboration: "Group / Solo",
-            recommended: true
-        },
-        {
-            id: "PROJ-043",
-            title: "Interactive Map of Global Energy",
-            difficulty: "Advanced",
-            badge: null,
-            problem: "Complex geospatial datasets are difficult to interpret without interactive visualization layers.",
-            concepts: ["Folium", "GeoJSON", "Big Data"],
-            time: "10+ Hours",
-            collaboration: "Mentor-guided",
-            recommended: false
-        }
-    ];
+    const navigate = useNavigate();
+    // Projects imported from mockData
 
     return (
         <div className="min-h-screen bg-background-light dark:bg-background-dark">
@@ -91,8 +60,8 @@ export default function TopicProjectIdeas() {
                                 <div
                                     key={index}
                                     className={`relative bg-white dark:bg-slate-800 rounded-2xl p-6 border transition-all hover:shadow-lg ${project.recommended
-                                            ? 'border-primary shadow-md'
-                                            : 'border-gray-200 dark:border-slate-700'
+                                        ? 'border-primary shadow-md'
+                                        : 'border-gray-200 dark:border-slate-700'
                                         }`}
                                 >
                                     {/* Recommended Badge */}
@@ -110,8 +79,8 @@ export default function TopicProjectIdeas() {
                                             </div>
                                             {project.badge && (
                                                 <div className={`w-10 h-10 rounded-lg ${project.badgeColor === 'orange'
-                                                        ? 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400'
-                                                        : 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                                                    ? 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400'
+                                                    : 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
                                                     } flex items-center justify-center font-bold text-sm`}>
                                                     {project.badge}
                                                 </div>
@@ -136,10 +105,10 @@ export default function TopicProjectIdeas() {
                                                     {project.title}
                                                 </h3>
                                                 <span className={`px-3 py-1 text-xs font-semibold rounded-full whitespace-nowrap ml-4 ${project.difficulty === 'Beginner'
-                                                        ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400'
-                                                        : project.difficulty === 'Intermediate'
-                                                            ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-                                                            : 'bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400'
+                                                    ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400'
+                                                    : project.difficulty === 'Intermediate'
+                                                        ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                                                        : 'bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400'
                                                     }`}>
                                                     {project.difficulty}
                                                 </span>
@@ -188,8 +157,8 @@ export default function TopicProjectIdeas() {
 
                                             {/* Action Button */}
                                             <button className={`w-full md:w-auto px-6 py-3 font-bold rounded-lg transition-all flex items-center justify-center gap-2 ${project.difficulty === 'Advanced'
-                                                    ? 'bg-white dark:bg-slate-700 text-primary border-2 border-primary hover:bg-primary hover:text-white'
-                                                    : 'bg-primary text-white hover:bg-indigo-700 shadow-lg shadow-primary/30'
+                                                ? 'bg-white dark:bg-slate-700 text-primary border-2 border-primary hover:bg-primary hover:text-white'
+                                                : 'bg-primary text-white hover:bg-indigo-700 shadow-lg shadow-primary/30'
                                                 }`}>
                                                 {project.difficulty === 'Advanced' ? 'View Details' : 'Start Build'}
                                                 <span className="material-symbols-outlined text-lg">arrow_forward</span>

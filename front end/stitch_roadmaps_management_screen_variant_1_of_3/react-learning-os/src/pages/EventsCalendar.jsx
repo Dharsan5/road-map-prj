@@ -1,7 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { events } from '../data/mockData';
 
 export default function EventsCalendar() {
+    const navigate = useNavigate();
     const [activeFilter, setActiveFilter] = useState('all');
+
+    const featuredEvent = events.find(e => e.featured);
+    const standardEvents = events.filter(e => !e.featured && (activeFilter === 'all' || e.category.toLowerCase() === activeFilter.toLowerCase()));
 
     return (
         <div className="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-display transition-colors duration-200">
@@ -41,20 +47,20 @@ export default function EventsCalendar() {
                                 All Events
                             </button>
                             <button
-                                onClick={() => setActiveFilter('workshops')}
-                                className={`px-4 py-2 text-sm font-medium rounded-full whitespace-nowrap ${activeFilter === 'workshops' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark'} transition-colors`}
+                                onClick={() => setActiveFilter('Workshop')}
+                                className={`px-4 py-2 text-sm font-medium rounded-full whitespace-nowrap ${activeFilter === 'Workshop' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark'} transition-colors`}
                             >
                                 Workshops
                             </button>
                             <button
-                                onClick={() => setActiveFilter('hackathons')}
-                                className={`px-4 py-2 text-sm font-medium rounded-full whitespace-nowrap ${activeFilter === 'hackathons' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark'} transition-colors`}
+                                onClick={() => setActiveFilter('Hackathon')}
+                                className={`px-4 py-2 text-sm font-medium rounded-full whitespace-nowrap ${activeFilter === 'Hackathon' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark'} transition-colors`}
                             >
                                 Hackathons
                             </button>
                             <button
-                                onClick={() => setActiveFilter('podcasts')}
-                                className={`px-4 py-2 text-sm font-medium rounded-full whitespace-nowrap ${activeFilter === 'podcasts' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark'} transition-colors`}
+                                onClick={() => setActiveFilter('Podcast')}
+                                className={`px-4 py-2 text-sm font-medium rounded-full whitespace-nowrap ${activeFilter === 'Podcast' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark'} transition-colors`}
                             >
                                 Podcasts
                             </button>
@@ -70,50 +76,61 @@ export default function EventsCalendar() {
                     </div>
 
                     {/* Featured Event */}
-                    <div className="relative w-full h-80 rounded-3xl overflow-hidden shadow-xl group">
-                        <img
-                            alt="Abstract 3D Shape"
-                            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYeXjw703MgKy3MDti6HenoycVrGTFysM9tB_3xb2xuGAHoGGONkgB-UHfFFqEhJFR5wlmgiQFqLhH4RQDESOHziucxYOwpnqQNveW_5L-a7C-Kdh_xAnyyMi_KJ8vB8zohtoUEQlcMUBmaNY6myIQBPG2HxO604XfUEN9OB3yhnbfB7luHQuXh4t1_pRp0xoKcLnHspUHYXbpbFd_JMMkp__RKx9asjWnBmiFOpYXS84dpSn4DF0eFdPU1KzP8J3_yAhwVfgNJNI"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent dark:from-gray-900 dark:via-gray-900/90 dark:to-transparent flex flex-col justify-center p-8 md:p-12 w-full md:w-2/3">
-                            <div className="flex gap-2 mb-4">
-                                <span className="px-2 py-1 bg-primary text-white text-[10px] uppercase font-bold tracking-wider rounded-md">Featured</span>
-                                <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-primary text-[10px] uppercase font-bold tracking-wider rounded-md flex items-center gap-1">
-                                    <span className="material-icons text-[10px]">videocam</span> Online Summit
-                                </span>
-                            </div>
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white leading-tight">
-                                Future of Learning: AI <br /> Integration Summit 2024
-                            </h2>
-                            <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-8 max-w-md line-clamp-2">
-                                Join industry leaders as we explore the intersection of artificial intelligence and cognitive learning systems.
-                            </p>
-                            <div className="flex items-center gap-6 mb-8">
-                                <div className="flex items-center gap-2">
-                                    <div className="p-2 bg-blue-50 dark:bg-gray-800 rounded-lg text-primary">
-                                        <span className="material-icons-outlined text-lg">calendar_today</span>
+                    {featuredEvent && (
+                        <div
+                            className="relative w-full h-80 rounded-3xl overflow-hidden shadow-xl group cursor-pointer"
+                            onClick={() => navigate(`/events/${featuredEvent.id}`)}
+                        >
+                            <img
+                                alt={featuredEvent.title}
+                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                src={featuredEvent.image}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent dark:from-gray-900 dark:via-gray-900/90 dark:to-transparent flex flex-col justify-center p-8 md:p-12 w-full md:w-2/3">
+                                <div className="flex gap-2 mb-4">
+                                    <span className="px-2 py-1 bg-primary text-white text-[10px] uppercase font-bold tracking-wider rounded-md">Featured</span>
+                                    <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-primary text-[10px] uppercase font-bold tracking-wider rounded-md flex items-center gap-1">
+                                        <span className="material-icons text-[10px]">videocam</span> {featuredEvent.category}
+                                    </span>
+                                </div>
+                                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white leading-tight">
+                                    {featuredEvent.title}
+                                </h2>
+                                <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-8 max-w-md line-clamp-2">
+                                    {featuredEvent.description}
+                                </p>
+                                <div className="flex items-center gap-6 mb-8">
+                                    <div className="flex items-center gap-2">
+                                        <div className="p-2 bg-blue-50 dark:bg-gray-800 rounded-lg text-primary">
+                                            <span className="material-icons-outlined text-lg">calendar_today</span>
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className="text-[10px] text-gray-500 uppercase font-semibold">Date</span>
+                                            <span className="text-xs font-bold text-gray-900 dark:text-white">{featuredEvent.date}</span>
+                                        </div>
                                     </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[10px] text-gray-500 uppercase font-semibold">Date</span>
-                                        <span className="text-xs font-bold text-gray-900 dark:text-white">Oct 24, 2024</span>
+                                    <div className="flex items-center gap-2">
+                                        <div className="p-2 bg-blue-50 dark:bg-gray-800 rounded-lg text-primary">
+                                            <span className="material-icons-outlined text-lg">schedule</span>
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className="text-[10px] text-gray-500 uppercase font-semibold">Time</span>
+                                            <span className="text-xs font-bold text-gray-900 dark:text-white">{featuredEvent.time}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <div className="p-2 bg-blue-50 dark:bg-gray-800 rounded-lg text-primary">
-                                        <span className="material-icons-outlined text-lg">schedule</span>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[10px] text-gray-500 uppercase font-semibold">Time</span>
-                                        <span className="text-xs font-bold text-gray-900 dark:text-white">09:00 AM EST</span>
-                                    </div>
-                                </div>
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        navigate(`/events/${featuredEvent.id}`);
+                                    }}
+                                    className="self-start px-6 py-2.5 bg-primary hover:bg-primary-dark text-white text-sm font-semibold rounded-lg shadow-lg shadow-blue-500/30 transition-all"
+                                >
+                                    RSVP Now
+                                </button>
                             </div>
-                            <button className="self-start px-6 py-2.5 bg-primary hover:bg-primary-dark text-white text-sm font-semibold rounded-lg shadow-lg shadow-blue-500/30 transition-all">
-                                RSVP Now
-                            </button>
                         </div>
-                    </div>
+                    )}
 
                     {/* Upcoming Sessions */}
                     <div>
@@ -124,74 +141,51 @@ export default function EventsCalendar() {
                             </a>
                         </div>
                         <div className="grid md:grid-cols-2 gap-6">
-                            {/* Event Card 1 */}
-                            <div className="bg-card-light dark:bg-card-dark border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer">
-                                <div className="relative h-40 overflow-hidden">
-                                    <img
-                                        alt="Abstract Network"
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-mGzkjQl8S3KaXEs1NaZFhqd2Lk6hZlBGfJbKNXoC17Tesz1oh02YXqC7wivXiKkZAnGsk08pgi4JX6tEYnnBv1Myfi5HmTZ7irwA5clyRcS9qjyUD76ssEC-zBBdHDbO7T1gul-LKtZAK6IKIbwiq8Vchz_FtTATdoIi7qm2Vz3dFHp8Rrexl8LQPNgcEJp8_T99XgJgyrkAa5hccv0jEZoNcSdbXVGrdOxQhQKfvTWN25q9Hy8g_zr4hHYnRYlMhXuyJXNNuqo"
-                                    />
-                                    <div className="absolute top-3 left-3 px-2 py-1 bg-black/60 backdrop-blur-sm rounded-md text-white text-[10px] font-bold flex items-center gap-1">
-                                        <span className="material-icons text-[10px] text-orange-400">place</span> NYC, USA
-                                    </div>
-                                </div>
-                                <div className="p-5">
-                                    <div className="flex justify-between items-start mb-2">
-                                        <span className="text-xs font-semibold text-primary">Offline Workshop</span>
-                                        <button className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
-                                            <span className="material-icons-outlined text-lg">bookmark_border</span>
-                                        </button>
-                                    </div>
-                                    <h4 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Design Systems in 2025</h4>
-                                    <p className="text-xs text-text-muted-light dark:text-text-muted-dark line-clamp-2 mb-4">
-                                        A hands-on workshop dissecting the anatomy of modern scalable UI kits.
-                                    </p>
-                                    <div className="flex items-center justify-between mt-auto">
-                                        <div className="flex -space-x-2">
-                                            <img alt="Attendee" className="w-6 h-6 rounded-full border-2 border-white dark:border-gray-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiJJU4BsaEcev6zYS0NqtnheCXY1ptlJcKI49wqgVzJmtkBlozG0An6CE54Hmwkt42Iz7a3-m14-qRyNbrZduUU4AxoaboQ3r83LB7-FqUUUF8KOTreJ4QcvKi0K_SRZiWAdHKzCnRBL5TOeiQshUibl3PkpOyJdLFM-2KHCgvrOzoa7zhZKUmrlmao6vJHh1siyTzMAzFPTphGSZ0DvO1_zRdBRNwc51XriKHkr-5557D8U0PeUuxKRaX3_UHNfKygGUlNKB6Sc0" />
-                                            <img alt="Attendee" className="w-6 h-6 rounded-full border-2 border-white dark:border-gray-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGjzQGCt5vGM_NRar1S6DMn69HQH3-YcZ7H_dKcFkTFV0MEoJLSKLSfQBD2x71R5EqA9s0ErqHquOUNmU1N3Lbuo0i6nzISSVq-vtFvgVwJ4ySTQb25_42ArfUxUM90wT-cw0J7uPBh3WYndUGJDa5HVI32KosWC38c4i-CATJAeADR45wHJaH1UyQmujt_cCdh-aYBuhySDjHx2AQY0Y0vUAKdHol_fImsoq72PnjUq4FbrG_Gd2O7UNzK1-SZpYmsWtchDUjRwE" />
-                                            <div className="w-6 h-6 rounded-full border-2 border-white dark:border-gray-800 bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-[8px] font-bold text-gray-500">+18</div>
+                            {standardEvents.map((event) => (
+                                <div
+                                    key={event.id}
+                                    className="bg-card-light dark:bg-card-dark border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer"
+                                    onClick={() => navigate(`/events/${event.id}`)}
+                                >
+                                    <div className="relative h-40 overflow-hidden">
+                                        <img
+                                            alt={event.title}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                            src={event.image}
+                                        />
+                                        <div className="absolute top-3 left-3 px-2 py-1 bg-black/60 backdrop-blur-sm rounded-md text-white text-[10px] font-bold flex items-center gap-1">
+                                            <span className="material-icons text-[10px] text-orange-400">place</span> {event.location}
                                         </div>
-                                        <span className="text-xs font-semibold text-gray-900 dark:text-gray-100">Nov 12</span>
+                                        {event.category === 'Podcast' && (
+                                            <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <span className="material-icons text-white text-4xl">play_circle_outline</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="p-5">
+                                        <div className="flex justify-between items-start mb-2">
+                                            <span className="text-xs font-semibold text-primary">{event.category}</span>
+                                            <button className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+                                                <span className="material-icons-outlined text-lg">bookmark_border</span>
+                                            </button>
+                                        </div>
+                                        <h4 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">{event.title}</h4>
+                                        <p className="text-xs text-text-muted-light dark:text-text-muted-dark line-clamp-2 mb-4">
+                                            {event.description}
+                                        </p>
+                                        <div className="flex items-center justify-between mt-auto">
+                                            <div className="flex -space-x-2">
+                                                {[1, 2, 3].map(i => (
+                                                    <div key={i} className="w-6 h-6 rounded-full border-2 border-white dark:border-gray-800 bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-[8px] font-bold text-gray-500">
+                                                        {i === 3 ? '+18' : ''}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <span className="text-xs font-semibold text-gray-900 dark:text-gray-100">{event.date}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            {/* Event Card 2 */}
-                            <div className="bg-card-light dark:bg-card-dark border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer">
-                                <div className="relative h-40 overflow-hidden">
-                                    <img
-                                        alt="Code Background"
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuALJdX3g1a0apMSMO40oHraXSaHQAQa5upnKZq09FUfq5C_gMMOufaxEE6XdUQLUDYqrGc85Eb2lbH5nPtWU1bG4hpz2Ocn6XafxZjuyPYXqrkUdbtD6sNjhKnucs-6W4lYDEkAGCWr3qaE0Shj0d5Dwzc_HAi5C3IZ8OTRdwFyESBoH8bcOiL32gqgFSs_mMambBoz6BIzmXoGy006tzvG5It1MrtQ9GilTJtMvxzS-s6IQEq5ZTavbMjbDseEnnfJJNw4BKboRYc"
-                                    />
-                                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <span className="material-icons text-white text-4xl">play_circle_outline</span>
-                                    </div>
-                                    <div className="absolute top-3 left-3 px-2 py-1 bg-purple-600/80 backdrop-blur-sm rounded-md text-white text-[10px] font-bold flex items-center gap-1">
-                                        <span className="material-icons text-[10px]">mic</span> Podcast
-                                    </div>
-                                </div>
-                                <div className="p-5">
-                                    <div className="flex justify-between items-start mb-2">
-                                        <span className="text-xs font-semibold text-purple-500">Live Recording</span>
-                                        <button className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
-                                            <span className="material-icons-outlined text-lg">bookmark_border</span>
-                                        </button>
-                                    </div>
-                                    <h4 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Cognitive Load & UI</h4>
-                                    <p className="text-xs text-text-muted-light dark:text-text-muted-dark line-clamp-2 mb-4">
-                                        Episode 4: Discussing how to reduce mental strain through better interface choices.
-                                    </p>
-                                    <div className="flex items-center justify-between mt-auto pt-2">
-                                        <span className="text-xs text-text-muted-light dark:text-text-muted-dark">
-                                            Hosted by <span className="font-semibold text-gray-900 dark:text-white">Sarah Chen</span>
-                                        </span>
-                                        <span className="text-xs font-semibold text-gray-900 dark:text-gray-100">Tomorrow, 4 PM</span>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </main>
